@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact — JD">
+  <h1 class="text-3xl font-bold mb-4">Contact</h1>
+  
+  <p class="text-[var(--color-muted)] mb-8">
+    Open to collaborations, research opportunities, and interesting conversations.
+  </p>
+
+  <div class="grid gap-4">
+    <a 
+      href="https://github.com/Jagruth07" 
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-4 p-4 rounded-lg border no-underline transition-colors hover:border-[var(--color-accent)]"
+      style="background-color: var(--color-surface); border-color: var(--color-border);"
+    >
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg"
+        style="background-color: var(--color-bg);"
+      >
+        💻
+      </div>
+      <div>
+        <div class="font-medium">GitHub</div>
+        <div class="text-sm text-[var(--color-muted)]">Jagruth07</div>
+      </div>
+    </a>
+
+    <a 
+      href="mailto:jagruthd07@gmail.com" 
+      class="flex items-center gap-4 p-4 rounded-lg border no-underline transition-colors hover:border-[var(--color-accent)]"
+      style="background-color: var(--color-surface); border-color: var(--color-border);"
+    >
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center text-lg"
+        style="background-color: var(--color-bg);"
+      >
+        ✉️
+      </div>
+      <div>
+        <div class="font-medium">Email</div>
+        <div class="text-sm text-[var(--color-muted)]">jagruthd07@gmail.com</div>
+      </div>
+    </a>
+  </div>
+</Layout>

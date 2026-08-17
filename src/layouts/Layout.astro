@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "JD's personal portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>{title}</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  
+  <script is:inline>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body class="antialiased">
+  <header class="border-b border-[var(--color-border)]">
+    <div class="mx-auto max-w-[720px] px-4 py-4 flex items-center justify-between">
+      <a href="/" class="text-lg font-semibold text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] transition-colors">
+        JD
+      </a>
+      <nav class="flex items-center gap-6">
+        <a href="/" class="text-sm font-medium text-[var(--color-muted)] no-underline hover:text-[var(--color-text)] transition-colors">Home</a>
+        <a href="/projects" class="text-sm font-medium text-[var(--color-muted)] no-underline hover:text-[var(--color-text)] transition-colors">Projects</a>
+        <a href="/contact" class="text-sm font-medium text-[var(--color-muted)] no-underline hover:text-[var(--color-text)] transition-colors">Contact</a>
+        <button 
+          id="theme-toggle" 
+          class="theme-toggle-hidden p-1.5 rounded-md hover:bg-[var(--color-surface)] border border-transparent hover:border-[var(--color-border)] transition-colors"
+          aria-label="Toggle theme"
+        >
+          <span id="theme-icon">🌙</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="mx-auto max-w-[720px] px-4 py-12">
+    <slot />
+  </main>
+  
+  <footer class="border-t border-[var(--color-border)] mt-auto">
+    <div class="mx-auto max-w-[720px] px-4 py-6 text-center text-sm text-[var(--color-muted)]">
+      <!-- Footer intentionally left blank -->
+    </div>
+  </footer>
+
+  <script is:inline>
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    
+    function updateIcon(theme) {
+      icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    updateIcon(currentTheme);
+    toggle.classList.remove('theme-toggle-hidden');
+    
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateIcon(next);
+    });
+  </script>
+</body>
+</html>

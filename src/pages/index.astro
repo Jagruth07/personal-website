@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="JD — Portfolio">
+  <!-- Hero Section -->
+  <section class="text-center mb-16">
+    <img 
+      src="/profile.jpg" 
+      alt="JD" 
+      class="w-32 h-32 mx-auto mb-6 rounded-full object-cover border border-[var(--color-border)]"
+      loading="eager"
+    />
+    <h1 class="text-3xl font-bold mb-3">Jagruth Dangi</h1>
+    <p class="text-lg text-[var(--color-muted)] mb-6">Building full-stack systems — from mobile apps to AI agents.</p>
+    <div class="flex justify-center gap-4">
+      <a 
+        href="/projects" 
+        class="px-5 py-2.5 rounded-md font-medium text-sm no-underline"
+        style="background-color: var(--color-accent); color: white;"
+      >
+        View Projects
+      </a>
+      <a 
+        href="/contact" 
+        class="px-5 py-2.5 rounded-md font-medium text-sm border no-underline"
+        style="border-color: var(--color-border); color: var(--color-text);"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- Bio Section -->
+  <section class="mb-16">
+    <h2 class="text-xl font-semibold mb-4">About</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      I am a graduate student currently pursuing my MTech in Computer Science and Engineering 
+      at Dayanand Sagar University. Previously, I completed my BTech in Computer Science and Engineering 
+      at the Indian Institute of Information Technology Dharwad.
+    </p>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      I enjoy building systems end-to-end, whether it's a Flutter mobile app with a live WebSocket 
+      feed or LLM pipelines with RAG and evaluation frameworks. I'm especially drawn to AI applications 
+      in healthcare. The best projects are the ones that teach you something new.
+    </p>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="mb-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xl font-semibold">Featured Projects</h2>
+      <a href="/projects" class="text-sm font-medium">View all →</a>
+    </div>
+    
+    <div class="grid gap-4">
+      <a 
+        href="/projects/deepannotate" 
+        class="block p-5 rounded-lg border no-underline transition-colors hover:border-[var(--color-accent)]"
+        style="background-color: var(--color-surface); border-color: var(--color-border);"
+      >
+        <h3 class="font-semibold mb-2">DeepAnnotate</h3>
+        <p class="text-sm text-[var(--color-muted)] mb-3">Full-stack Flutter mobile app for distributed data collection with real-time WebSocket feed and AWS S3 storage.</p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Flutter</span>
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Node.js</span>
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">PostgreSQL</span>
+        </div>
+      </a>
+      
+      <a 
+        href="/projects/autonomous-research-agent" 
+        class="block p-5 rounded-lg border no-underline transition-colors hover:border-[var(--color-accent)]"
+        style="background-color: var(--color-surface); border-color: var(--color-border);"
+      >
+        <h3 class="font-semibold mb-2">Autonomous Research Agent</h3>
+        <p class="text-sm text-[var(--color-muted)] mb-3">Multi-agent LangGraph pipeline for intelligence report generation and conversational knowledge retrieval.</p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Python</span>
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">LangGraph</span>
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Ollama</span>
+        </div>
+      </a>
+      
+      <a 
+        href="/projects/mental-health-research" 
+        class="block p-5 rounded-lg border no-underline transition-colors hover:border-[var(--color-accent)]"
+        style="background-color: var(--color-surface); border-color: var(--color-border);"
+      >
+        <h3 class="font-semibold mb-2">Mental Health Research</h3>
+        <p class="text-sm text-[var(--color-muted)] mb-3">RAG pipeline evaluation for AI mental health chatbot using Indian mythological stories and psychologist references.</p>
+        <div class="flex gap-2">
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Python</span>
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Qdrant</span>
+          <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">BERTScore</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Links -->
+  <section>
+    <h2 class="text-xl font-semibold mb-4">Connect</h2>
+    <div class="flex gap-6">
+      <a href="https://github.com/Jagruth07" target="_blank" rel="noopener noreferrer" class="text-sm font-medium">GitHub</a>
+      <a href="mailto:jagruthd07@gmail.com" class="text-sm font-medium">Email</a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Mental Health Research — JD">
+  <div class="mb-8">
+    <a href="/projects" class="text-sm text-[var(--color-muted)]">← Back to Projects</a>
+  </div>
+
+  <h1 class="text-3xl font-bold mb-4">Mental Health Research</h1>
+
+  <div class="flex items-center gap-3 mb-6">
+    <span class="text-xs px-2 py-1 rounded-full font-medium" style="background-color: var(--color-accent); color: white;">Active</span>
+    <a href="https://github.com/Jagruth07/mental-health-research" target="_blank" rel="noopener noreferrer" class="text-sm">GitHub →</a>
+  </div>
+
+  <p class="text-[var(--color-muted)] leading-relaxed mb-6">
+    An end-to-end evaluation pipeline for a RAG-backed AI mental health chatbot that generates 
+    therapeutic responses using Indian mythological stories (Ramayana, Mahabharata) retrieved from 
+    a vector database. Evaluates generated responses against psychologist-approved references using 
+    BERTScore and ROUGE-L, correlating metrics with human ratings.
+  </p>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Python</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Sentence-Transformers</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Qdrant</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">BERTScore</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">ROUGE</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Ollama</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Pandas</span>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Pipeline Overview</h2>
+    
+    <h3 class="text-base font-medium mb-2">Phase 0 — Data Ingestion</h3>
+    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      291 Ramayana stories are embedded using sentence-transformers (all-mpnet-base-v2) and loaded 
+      into a Qdrant vector database for semantic retrieval.
+    </p>
+
+    <h3 class="text-base font-medium mb-2">Phase 1 — Generation</h3>
+    <ul class="list-disc list-inside text-[var(--color-muted)] space-y-2 mb-4">
+      <li>Embed user question with sentence-transformers</li>
+      <li>Retrieve top-3 passages from Qdrant</li>
+      <li>Inject passages into a strict prompt that forces Story ID citation</li>
+      <li>Generate response via Ollama with Qwen3-8B</li>
+    </ul>
+
+    <h3 class="text-base font-medium mb-2">Phase 2 — Evaluation</h3>
+    <ul class="list-disc list-inside text-[var(--color-muted)] space-y-2">
+      <li>BERTScore (roberta-large, layer 17) — semantic similarity</li>
+      <li>ROUGE-L — surface-level word overlap</li>
+      <li>Correlation analysis with human psychologist ratings</li>
+    </ul>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Key Findings</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      LLM-as-Judge for empathic validation scored 1.000 vs regex at 0.349 — demonstrating that 
+      content-based citation analysis reveals retrieval fidelity improvements even when BERTScore drops 
+      after switching from loose to strict prompt forcing. The D4 CBT Protocol metric remains a known 
+      anomaly requiring backend investigation.
+    </p>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Research Context</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      Psychologist references in the evaluation dataset are LLM-generated responses reviewed by 
+      psychologists, a known methodological limitation. The work contributes to understanding how 
+      culturally-grounded RAG systems can be evaluated for therapeutic content generation using 
+      both automated metrics and human judgment.
+    </p>
+  </div>
+</Layout>

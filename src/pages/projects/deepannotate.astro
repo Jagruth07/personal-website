@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="DeepAnnotate — JD">
+  <div class="mb-8">
+    <a href="/projects" class="text-sm text-[var(--color-muted)]">← Back to Projects</a>
+  </div>
+
+  <h1 class="text-3xl font-bold mb-4">DeepAnnotate</h1>
+
+  <div class="flex items-center gap-3 mb-6">
+    <span class="text-xs px-2 py-1 rounded-full font-medium" style="background-color: var(--color-bg);">Completed</span>
+    <a href="https://github.com/Jagruth07/Deepannotate_repo" target="_blank" rel="noopener noreferrer" class="text-sm">GitHub →</a>
+  </div>
+
+  <p class="text-[var(--color-muted)] leading-relaxed mb-6">
+    DeepAnnotate is a full-stack, unified mobile application prototype designed for efficiently 
+    collecting diverse data types (audio, images, and video) from distributed users. It features 
+    an integrated Admin Dashboard and User Interface, completely removing the need for a separate website.
+  </p>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Flutter</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Dart</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Node.js</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Express</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Socket.io</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">PostgreSQL</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">AWS S3</span>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Key Features</h2>
+    <ul class="list-disc list-inside text-[var(--color-muted)] space-y-2">
+      <li>Unified Flutter app housing both Admin Dashboard and User interfaces</li>
+      <li>Real-time live feed via WebSockets (Socket.io)</li>
+      <li>Direct AWS S3 uploads with pre-signed URLs</li>
+      <li>Global dark/light mode toggle</li>
+      <li>Offline task tracking with completion status</li>
+    </ul>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Architecture</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      The project transitioned from Firebase to an industry-standard scalable architecture. 
+      The Node.js Express backend handles API requests and WebSocket connections, while PostgreSQL 
+      stores task and user data. All media submissions are uploaded directly from the Flutter app 
+      to an AWS S3 bucket using pre-signed HTTP PUT URLs, keeping cloud credentials securely isolated 
+      on the backend.
+    </p>
+  </div>
+</Layout>

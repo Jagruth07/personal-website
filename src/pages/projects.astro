@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    slug: 'deepannotate',
+    title: 'DeepAnnotate',
+    description: 'Full-stack Flutter mobile app for distributed data collection with real-time WebSocket feed and AWS S3 storage.',
+    status: 'Completed',
+    tags: ['Flutter', 'Dart', 'Node.js', 'Express', 'Socket.io', 'PostgreSQL', 'AWS S3']
+  },
+  {
+    slug: 'autonomous-research-agent',
+    title: 'Autonomous Research Agent',
+    description: 'Multi-agent LangGraph pipeline for intelligence report generation and conversational knowledge retrieval.',
+    status: 'Completed',
+    tags: ['Python', 'LangGraph', 'Ollama', 'Jupyter']
+  },
+  {
+    slug: 'mental-health-research',
+    title: 'Mental Health Research',
+    description: 'RAG pipeline evaluation for AI mental health chatbot using Indian mythological stories and psychologist references.',
+    status: 'Active',
+    tags: ['Python', 'Sentence-Transformers', 'Qdrant', 'BERTScore', 'ROUGE', 'Ollama']
+  }
+];
+---
+
+<Layout title="Projects — JD">
+  <h1 class="text-3xl font-bold mb-8">Projects</h1>
+  
+  <div class="grid gap-6">
+    {projects.map(project => (
+      <a 
+        href={`/projects/${project.slug}`} 
+        class="block p-6 rounded-lg border no-underline transition-colors hover:border-[var(--color-accent)]"
+        style="background-color: var(--color-surface); border-color: var(--color-border);"
+      >
+        <div class="flex items-start justify-between mb-3">
+          <h2 class="text-xl font-semibold">{project.title}</h2>
+          <span 
+            class="text-xs px-2 py-1 rounded-full font-medium"
+            style={project.status === 'Active' ? 'background-color: var(--color-accent); color: white;' : 'background-color: var(--color-bg);'}
+          >
+            {project.status}
+          </span>
+        </div>
+        
+        <p class="text-[var(--color-muted)] mb-4">{project.description}</p>
+        
+        <div class="flex flex-wrap gap-2">
+          {project.tags.map(tag => (
+            <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">{tag}</span>
+          ))}
+        </div>
+      </a>
+    ))}
+  </div>
+</Layout>

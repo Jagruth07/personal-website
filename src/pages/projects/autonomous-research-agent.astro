@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Autonomous Research Agent — JD">
+  <div class="mb-8">
+    <a href="/projects" class="text-sm text-[var(--color-muted)]">← Back to Projects</a>
+  </div>
+
+  <h1 class="text-3xl font-bold mb-4">Autonomous Research Agent</h1>
+
+  <div class="flex items-center gap-3 mb-6">
+    <span class="text-xs px-2 py-1 rounded-full font-medium" style="background-color: var(--color-bg);">Completed</span>
+    <a href="https://github.com/Jagruth07/autonomous-research-agent" target="_blank" rel="noopener noreferrer" class="text-sm">GitHub →</a>
+  </div>
+
+  <p class="text-[var(--color-muted)] leading-relaxed mb-6">
+    A multi-agent system built with LangGraph and local Ollama. Task 1 generates structured 
+    intelligence reports via parallel agents (news search, stock data, research synthesis, summary). 
+    Task 2 is a conversational knowledge bot with Wikipedia + web search tools, multi-turn memory, 
+    and follow-up resolution. Runs entirely on local GPU with no external API keys.
+  </p>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Python</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">LangGraph</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Ollama</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Jupyter</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Web Search</span>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Task 1: Intelligence Report Pipeline</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      A parallel multi-agent LangGraph pipeline that transforms a company name into a structured 
+      intelligence report. Four specialised agents run concurrently — News, Stock, Research, and 
+      Summary — each pulling from different data sources and feeding into a final synthesis agent.
+    </p>
+    <ul class="list-disc list-inside text-[var(--color-muted)] space-y-2">
+      <li>News Agent: searches and aggregates recent company news</li>
+      <li>Stock Agent: fetches and analyses financial data</li>
+      <li>Research Agent: deep-dives into company background and products</li>
+      <li>Summary Agent: synthesises all findings into a coherent report</li>
+    </ul>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Task 2: Conversational Knowledge Bot</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+      A conversational agent with Wikipedia and web search tools plus multi-turn memory, 
+      capable of resolving follow-up questions ("he", "it", "there") across conversation turns.
+    </p>
+    <ul class="list-disc list-inside text-[var(--color-muted)] space-y-2">
+      <li>Tool-augmented retrieval with Wikipedia and web search</li>
+      <li>Multi-turn memory for context across conversation history</li>
+      <li>Anaphora resolution for follow-up questions</li>
+      <li>Runs entirely on local Ollama (Qwen3.5-9B) — no API keys needed</li>
+    </ul>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Design Decisions</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      Qwen3.5-9B was chosen as the largest tool-calling-capable model fitting an 8 GB VRAM budget, 
+      running entirely on GPU at ~6.1 GB. Context windows were raised above Ollama's 4096 default 
+      (Task 1: 16384, Task 2: 8192) with capped tool output lengths to prevent silent context-window 
+      overflow during agent execution.
+    </p>
+  </div>
+</Layout>
