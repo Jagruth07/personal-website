@@ -33,7 +33,7 @@ const { title, description = "JD's personal portfolio" } = Astro.props;
 </head>
 <body class="antialiased">
   <header class="border-b border-[var(--color-border)]">
-    <div class="mx-auto max-w-[720px] px-4 py-4 flex items-center justify-between">
+    <div class="mx-auto max-w-3xl lg:max-w-5xl px-4 py-4 flex items-center justify-between">
       <a href="/" class="text-lg font-semibold text-[var(--color-text)] no-underline hover:text-[var(--color-accent)] transition-colors">
         JD
       </a>
@@ -52,12 +52,12 @@ const { title, description = "JD's personal portfolio" } = Astro.props;
     </div>
   </header>
   
-  <main class="mx-auto max-w-[720px] px-4 py-12">
+  <main class="mx-auto max-w-[900px] lg:max-w-[1100px] px-4 py-12">
     <slot />
   </main>
   
   <footer class="border-t border-[var(--color-border)] mt-auto">
-    <div class="mx-auto max-w-[720px] px-4 py-6 text-center text-sm text-[var(--color-muted)]">
+    <div class="mx-auto max-w-[900px] lg:max-w-[1100px] px-4 py-6 text-center text-sm text-[var(--color-muted)]">
       <!-- Footer intentionally left blank -->
     </div>
   </footer>
