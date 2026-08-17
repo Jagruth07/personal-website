@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Personal Website — JD">
+  <div class="mb-8">
+    <a href="/projects" class="text-sm text-[var(--color-muted)]">← Back to Projects</a>
+  </div>
+
+  <h1 class="text-3xl font-bold mb-4">Personal Website</h1>
+
+  <div class="flex items-center gap-3 mb-6">
+    <span class="text-xs px-2 py-1 rounded-full font-medium" style="background-color: var(--color-bg);">Completed</span>
+    <a href="https://github.com/Jagruth07/personal-website" target="_blank" rel="noopener noreferrer" class="text-sm">GitHub →</a>
+  </div>
+
+  <p class="text-[var(--color-muted)] leading-relaxed mb-6">
+    A static portfolio website built to showcase projects, education, and skills. Features 
+    a responsive dark/light theme toggle, clean typography, and zero JavaScript shipped 
+    to the client by default.
+  </p>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Astro</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">Tailwind CSS</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">HTML</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">CSS</span>
+      <span class="text-xs px-2 py-1 rounded-full font-mono" style="background-color: var(--color-bg);">JavaScript</span>
+    </div>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Features</h2>
+    <ul class="list-disc list-inside text-[var(--color-muted)] space-y-2">
+      <li>Static site generation with Astro (zero client-side JS by default)</li>
+      <li>Dark/light theme toggle with system preference detection and localStorage persistence</li>
+      <li>Responsive single-column layout optimized for reading</li>
+      <li>Project showcase with detail pages and tech stack tags</li>
+      <li>Built-in routing via file-based page structure</li>
+      <li>Custom favicon with initials</li>
+    </ul>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Design Decisions</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      Astro was chosen over plain HTML/CSS for component reuse (navigation, layout) and 
+      automatic routing. Tailwind CSS provides utility-first styling without writing custom 
+      CSS for every element. The dark theme uses CSS custom properties on :root, overridden 
+      by a [data-theme="light"] attribute — no framework needed for the toggle itself.
+    </p>
+  </div>
+
+  <div class="mb-6">
+    <h2 class="text-lg font-semibold mb-3">Deployment</h2>
+    <p class="text-[var(--color-muted)] leading-relaxed">
+      Deployed via Netlify with automatic builds on every GitHub push. The build output 
+      is plain static HTML/CSS/JS — no server required, free hosting tier sufficient.
+    </p>
+  </div>
+</Layout>
